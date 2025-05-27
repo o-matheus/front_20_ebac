@@ -2,7 +2,7 @@
 
 ## Menu 
 [Aula 1 - Crie o primeiro e-mail](#aula-1--crie-o-primeiro-e-mail)  
-[Aula 2 -](#aula-)  
+[Aula 2 - Teste o e-mail](#aula-2--teste-o-e-mail)  
 [Aula 3 -](#aula-)  
 [Aula 4 -](#aula-)  
 [Aula 5 -](#aula-)  
@@ -174,3 +174,31 @@ Essa tabela é colocada dentro de um `<td>` para alinhar dois textos: a descriç
 * A construção precisa ser testada em diferentes clientes de e-mail, pois a renderização pode variar entre Gmail, Outlook, etc.;
 * O uso de imagens (como logos e ícones de redes sociais) é comum para garantir controle visual quando fontes e estilos falham.
 
+Perfeito, Matheus! Aqui está a anotação da **Aula 2 – Teste o e-mail**, revisada com clareza e ortografia ajustadas, mantendo sua linguagem e raciocínio:
+
+---
+
+### Aula 2 – Teste o e-mail
+
+**Objetivos da aula:**
+
+* Compreender o processo de teste de e-mails;
+* Compreender a importância do teste para garantir que os e-mails sejam exibidos corretamente.
+
+---
+
+Durante essa aula, o professor apresentou uma plataforma chamada **[PutsMail.com](https://putsmail.com/)**. Essa ferramenta permite que testemos e visualizemos os e-mails HTML que construímos, colando o código diretamente no site para enviá-lo como uma prévia para nosso próprio e-mail.
+
+Logo no início, enfrentamos um pequeno desafio: as **imagens utilizadas no e-mail** não aparecem corretamente ao colar o HTML no PutsMail, porque elas estão salvas **localmente** no computador, e **não estão hospedadas online**.
+
+Para resolver isso, o professor propõe o seguinte fluxo:
+
+1. **Criar um repositório no GitHub** (ele chamou de "servidor de estáticos");
+2. Adicionar apenas os **arquivos de imagem** nesse repositório;
+3. Fazer o **deploy desse repositório na Vercel**;
+4. A Vercel inicialmente retorna uma tela em branco, pois o repositório não tem um `index.html`, mas é possível visualizar qualquer imagem acessando diretamente a URL com o nome da imagem no final (por exemplo, `https://servidor-static.vercel.app/facebook.png`);
+5. Depois disso, basta **substituir os caminhos locais** das imagens no código HTML pelas URLs públicas da Vercel.
+
+Essas URLs online garantem que, ao colar o código no PutsMail, as imagens sejam carregadas corretamente no e-mail enviado.
+
+O professor também comentou que a **versão paga** do PutsMail oferece um preview mais completo e facilitado dos e-mails, mas a **versão gratuita já é suficiente** para testar a estrutura básica, visual e links.
