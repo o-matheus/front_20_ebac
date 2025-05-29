@@ -3,7 +3,7 @@
 ## Menu 
 [Aula 1 - Crie o primeiro e-mail](#aula-1--crie-o-primeiro-e-mail)  
 [Aula 2 - Teste o e-mail](#aula-2--teste-o-e-mail)  
-[Aula 3 -](#aula-)  
+[Aula 3 - Crie um e-mail de recuperação de senha](#aula-3--crie-um-e-mail-de-recuperação-de-senha)  
 [Aula 4 -](#aula-)  
 [Aula 5 -](#aula-)  
 
@@ -202,3 +202,131 @@ Para resolver isso, o professor propõe o seguinte fluxo:
 Essas URLs online garantem que, ao colar o código no PutsMail, as imagens sejam carregadas corretamente no e-mail enviado.
 
 O professor também comentou que a **versão paga** do PutsMail oferece um preview mais completo e facilitado dos e-mails, mas a **versão gratuita já é suficiente** para testar a estrutura básica, visual e links.
+
+Excelente, Matheus! Com base no **código HTML final** que você compartilhou, aqui está o **resumo completo da Aula 3 – Crie um e-mail de recuperação de senha**, estruturado em **formato Markdown**, seguindo o modelo das aulas anteriores:
+
+---
+
+## **Aula 3 – Crie um e-mail de recuperação de senha**
+
+### **Objetivos da aula**
+
+* Entender o uso de atributos em elementos HTML;
+* Aplicar estilos e formatação em elementos HTML;
+* Compreender as melhores práticas para construção de e-mails.
+
+---
+
+### **Estrutura geral do e-mail**
+
+O e-mail foi construído utilizando uma estrutura tradicional baseada em tabelas, respeitando as limitações de compatibilidade dos clientes de e-mail. A organização ficou da seguinte forma:
+
+1. Tag `<center>` para centralizar todo o conteúdo;
+2. Tabela com `width="600"`, `cellspacing="0"` e `cellpadding="0"`;
+3. Cabeçalho (`<thead>`) com título e logo;
+4. Corpo principal (`<tbody>`) com mensagem e botão;
+5. Rodapé (`<tfoot>`) com link e logo da empresa.
+
+---
+
+### **Cabeçalho – Recuperação de senha + Logo**
+
+```html
+<thead>
+  <tr bgcolor="#1C54A8">
+    <th style="padding-top: 24px; padding-bottom: 24px;">
+      <p style="margin: 0; color: #fff; font-size: 20px; font-family: sans-serif; font-weight: normal;">
+        Recuperação de senha
+      </p>
+    </th>
+    <th style="padding-top: 28px; padding-bottom: 24px;">
+      <img src="https://servidor-estaticos.vercel.app/EBAC_SHOES.png" alt="EBAC Shoes">
+    </th>
+  </tr>
+</thead>
+```
+
+* Utilização de `bgcolor` diretamente na tag `<tr>`;
+* Fontes com `sans-serif`, `font-size: 20px`, `color: white`;
+* Uso de `<th>` para duas colunas alinhadas com paddings distintos;
+* Logo exibida com `<img>`.
+
+---
+
+### **Corpo da mensagem**
+
+```html
+<td colspan="2" style="padding: 24px 40px 80px;">
+  <h2 style="font-size: 16px; font-family: sans-serif;">
+    <b><i>Olá, tudo bem?</i></b>
+  </h2>
+  <p style="margin-top: 0; padding-bottom: 24px; font-family: sans-serif; font-size: 14px;">
+    Recebemos sua solicitação de recuperação de senha, para criar uma nova senha clique no botão abaixo:
+  </p>
+```
+
+* Cabeçalho textual com `<h2>` + `<b>` + `<i>` para manter compatibilidade com e-mails;
+* Padding utilizado em vez de margin para garantir espaçamento consistente;
+* Mensagem explicativa com `font-size: 14px`.
+
+---
+
+### **Botão de ação: "Cadastrar nova senha"**
+
+```html
+<a href="" style="text-decoration: none; background-color: #1C54A8; color: #fff; padding: 16px 8px; border-radius: 6px; font-family: sans-serif;">
+  <b><i>Cadastrar nova senha</i></b>
+</a>
+```
+
+* Estilizado com `padding`, `border-radius`, `background-color` e `color`;
+* Remoção do `text-decoration`;
+* Texto com negrito + itálico;
+* Compatível com a maioria dos clientes de e-mail.
+
+---
+
+### **Mensagem de validade e aviso**
+
+```html
+<p style="padding-top: 16px;">
+  <i>
+    <span style="color: #616161;">O link é válido por 24h</span><br><br>
+    <b>Importante:</b> caso não tenha feito a solicitação, desconsidere o e-mail.
+  </i>
+</p>
+```
+
+* Uso de `<i>` e `<span>` para formatação de aviso;
+* Destaque em negrito para o alerta;
+* Cor suave para aviso de expiração (`#616161`).
+
+---
+
+### **Rodapé com logo e link**
+
+```html
+<tfoot>
+  <tr>
+    <td align="center" colspan="2" bgcolor="#1C54A8" style="padding: 16px 8px;">
+      <a href="https://ebacshoes.com.br/">
+        <img src="https://servidor-estaticos.vercel.app/ebac_shoes_site.png" alt="EBAC Shoes">
+      </a>
+    </td>
+  </tr>
+</tfoot>
+```
+
+* Uso de `align="center"` em vez de `<center>`;
+* Cor de fundo consistente com o topo;
+* Logo com link para o site oficial;
+* `colspan="2"` para alinhar com a estrutura do cabeçalho.
+
+---
+
+### **Observações importantes**
+
+* **`padding` funciona melhor do que `margin`** em e-mails HTML;
+* O uso de **`colspan="2"`** é essencial para manter o alinhamento entre cabeçalho e corpo;
+* Imagens devem estar hospedadas online (utilizou-se a Vercel como repositório);
+* Muita estilização inline é necessária para garantir renderização uniforme em diferentes serviços de e-mail.
