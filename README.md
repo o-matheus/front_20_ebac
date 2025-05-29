@@ -5,7 +5,7 @@
 [Aula 2 - Teste o e-mail](#aula-2--teste-o-e-mail)  
 [Aula 3 - Crie um e-mail de recuperação de senha](#aula-3--crie-um-e-mail-de-recuperação-de-senha)  
 [Aula 4 - Crie um e-mail de confirmação de pedido](#aula-4--crie-um-e-mail-de-confirmação-de-pedido)  
-[Aula 5 -](#aula-)  
+[Aula 5 - Crie um e-mail de promoções](#aula-5--crie-um-e-mail-de-promoções)  
 
 ## **Aula 1 – Crie o primeiro e-mail**
 
@@ -480,3 +480,135 @@ A solução foi **retornar ao uso das tags `<p>`** com estilo `font-style: itali
 * Usamos `colspan="2"` nas linhas principais para manter alinhamento com o cabeçalho;
 * Ajustamos `padding` e `margin` para evitar colagens ou desalinhamentos visuais;
 * Aprendemos que até mesmo o exemplo do professor apresentou desalinhamento leve, o que reforça a necessidade de sempre testar o layout em múltiplos clientes de e-mail.
+
+Claro! Abaixo está o **texto final da Aula 5** estruturado conforme o modelo das aulas anteriores:
+
+---
+
+## **Aula 5 – Crie um e-mail de promoções**
+
+### **Objetivos da aula**
+
+* Criar um e-mail promocional personalizado e compatível com clientes de e-mail;
+* Trabalhar layout com tabelas e `<div>`s para mostrar múltiplos produtos;
+* Utilizar técnicas seguras para estilização e destaque de cupons;
+* Compreender limitações de tecnologias modernas como `display: grid` e `flex` em e-mails;
+* Aplicar boas práticas de acessibilidade e semântica HTML em campanhas.
+
+---
+
+### **Introdução ao projeto**
+
+Nesta aula, construímos um e-mail promocional da fictícia **EBAC Shoes**, contendo:
+
+* Cabeçalho com o título “Promoções da semana” e a logo da marca;
+* Mensagem introdutória e cupom com destaque visual;
+* Seção de produtos em promoção, organizados lado a lado;
+* Rodapé com o link para o site oficial da loja.
+
+O layout seguiu uma estrutura reaproveitável das aulas anteriores, adaptando o conteúdo central para atender às necessidades específicas de uma campanha promocional.
+
+---
+
+### **Estrutura e componentes principais do e-mail**
+
+#### 1. **Cabeçalho com título e logo**
+
+Utilizamos a tag `<thead>` para criar o cabeçalho com duas colunas:
+
+```html
+<tr bgcolor="#1C54A8">
+  <th align="left" style="padding-left: 40px;">
+    Promoções da semana
+  </th>
+  <th>
+    <img src=".../EBAC_SHOES.png" alt="EBAC Shoes">
+  </th>
+</tr>
+```
+
+* A cor azul escura define o fundo do cabeçalho.
+* O texto está alinhado à esquerda, enquanto o logo fica à direita.
+* Toda a linha é envolta pela tag `<thead>` para garantir clareza estrutural.
+
+---
+
+#### 2. **Mensagem promocional com cupom de desconto**
+
+Dentro do `<tbody>`, temos uma mensagem introdutória seguida por um destaque com o cupom promocional:
+
+```html
+<h2>
+  <b><i>Temos promoções exclusivas para você</i></b>
+</h2>
+
+<p>
+  Separamos algumas promoções exclusivas... <b>ganhar 10% OFF e frete grátis!</b>
+</p>
+
+<span style="...">
+  <b>EBAC_S_10</b>
+</span>
+
+<span style="...">Válido até 10/06/2025</span>
+```
+
+* O cupom foi estilizado com `border`, `padding`, `border-radius` e `font-size` para criar um efeito de botão visual.
+* Em vez de usar uma imagem, o professor optou por estilizar diretamente a `tag <span>`, aumentando a compatibilidade.
+* A validade do cupom aparece logo abaixo com tamanho reduzido e cor cinza.
+
+---
+
+#### 3. **Listagem de produtos promocionais**
+
+Por limitações de CSS moderno em e-mails, **não foi usado `display: grid`**. Em vez disso, optou-se por `inline-block` com `max-width`, criando uma grade visual de produtos.
+
+Cada produto segue a estrutura:
+
+```html
+<div style="display: inline-block; max-width: 127px; width: 100%; padding-bottom: 24px;">
+  <a href="..." style="text-decoration: none; color: #000;">
+    <img src="...produto.png">
+    <div>
+      <h3>Tênis Nike</h3>
+      <span style="text-decoration: line-through;">R$ 350,00</span>
+      <p>R$ 200,00<br>4x de R$ 50,00</p>
+    </div>
+  </a>
+</div>
+```
+
+* O `a` envolve imagem e descrição para tornar o card inteiro clicável.
+* `text-decoration: none` e `color: #000` evitam o comportamento padrão de links.
+* Os preços usam `<span>` com `line-through` para mostrar o valor antigo e `<p>` para destacar o novo.
+* O `padding-bottom: 24px` garante espaçamento vertical uniforme entre os cards.
+
+---
+
+#### 4. **Rodapé com chamada para o site**
+
+Ao final, o rodapé contém um link com imagem levando ao site da EBAC Shoes:
+
+```html
+<tfoot>
+  <tr bgcolor="#1C54A8">
+    <td align="center" colspan="2">
+      <a href="https://ebacshoes.com.br/">
+        <img src=".../ebac_shoes_site.png" alt="EBAC Shoes">
+      </a>
+    </td>
+  </tr>
+</tfoot>
+```
+
+---
+
+### **Resumo da Aula 5**
+
+* Estruturamos um e-mail promocional compatível com clientes como Gmail e Outlook;
+* O cupom foi estilizado manualmente com `span`, `padding`, `border`, `color` e `font-size`;
+* Produtos foram organizados com `inline-block` e `max-width`, mantendo o layout fluido;
+* Usamos `<table>`, `<div>`, `<span>` e `inline CSS` por segurança e compatibilidade;
+* Evitamos `display: grid` ou `flexbox`, pois podem não funcionar corretamente;
+* A validação do layout foi feita com testes reais por e-mail, garantindo exibição correta;
+* O módulo exigiu atenção a detalhes e domínio de boas práticas em HTML retrô para e-mail marketing.
