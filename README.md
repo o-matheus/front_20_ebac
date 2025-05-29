@@ -4,7 +4,7 @@
 [Aula 1 - Crie o primeiro e-mail](#aula-1--crie-o-primeiro-e-mail)  
 [Aula 2 - Teste o e-mail](#aula-2--teste-o-e-mail)  
 [Aula 3 - Crie um e-mail de recuperação de senha](#aula-3--crie-um-e-mail-de-recuperação-de-senha)  
-[Aula 4 -](#aula-)  
+[Aula 4 - Crie um e-mail de confirmação de pedido](#aula-4--crie-um-e-mail-de-confirmação-de-pedido)  
 [Aula 5 -](#aula-)  
 
 ## **Aula 1 – Crie o primeiro e-mail**
@@ -174,9 +174,6 @@ Essa tabela é colocada dentro de um `<td>` para alinhar dois textos: a descriç
 * A construção precisa ser testada em diferentes clientes de e-mail, pois a renderização pode variar entre Gmail, Outlook, etc.;
 * O uso de imagens (como logos e ícones de redes sociais) é comum para garantir controle visual quando fontes e estilos falham.
 
-Perfeito, Matheus! Aqui está a anotação da **Aula 2 – Teste o e-mail**, revisada com clareza e ortografia ajustadas, mantendo sua linguagem e raciocínio:
-
----
 
 ### Aula 2 – Teste o e-mail
 
@@ -330,3 +327,156 @@ O e-mail foi construído utilizando uma estrutura tradicional baseada em tabelas
 * O uso de **`colspan="2"`** é essencial para manter o alinhamento entre cabeçalho e corpo;
 * Imagens devem estar hospedadas online (utilizou-se a Vercel como repositório);
 * Muita estilização inline é necessária para garantir renderização uniforme em diferentes serviços de e-mail.
+
+Claro! Aqui está o texto unificado da **Aula 4 – Crie um e-mail de confirmação de pedido**, seguindo exatamente a estrutura e estilo da referência que você forneceu:
+
+---
+
+## **Aula 4 – Crie um e-mail de confirmação de pedido**
+
+### **Objetivos da aula**
+
+* Dominar a estrutura e formatação dos e-mails HTML;
+* Aplicar técnicas avançadas de formatação;
+* Entender as melhores práticas de design de e-mail;
+* Inserir seções de descrição de produto no e-mail;
+* Corrigir problemas de alinhamento e compatibilidade visual.
+
+---
+
+### **Introdução ao projeto**
+
+Dando continuidade ao projeto da loja virtual fictícia, nesta aula desenvolvemos o **e-mail de confirmação de pedido**. Ele é uma evolução direta do e-mail de recuperação de senha criado na aula anterior, mantendo a mesma estrutura de header, corpo e rodapé, mas introduzindo uma **seção com os detalhes do pedido**, como:
+
+* Imagem do produto;
+* Nome do produto;
+* Tamanho, cor e quantidade;
+* Preço e forma de pagamento;
+* Frete e número do pedido.
+
+Além disso, o botão principal da mensagem passou de **“Cadastrar nova senha”** para **“Acompanhar o pedido”**.
+
+---
+
+### **Dificuldades enfrentadas durante o processo**
+
+Durante a adaptação do layout no HTML, uma tentativa de trocar as tags `<p>` por `<i>` para representar o itálico causou **problemas de espaçamento e alinhamento** entre os elementos. Os textos começaram a se sobrepor, o botão subiu e ignorou o conteúdo ao redor.
+
+A solução foi **retornar ao uso das tags `<p>`** com estilo `font-style: italic` e, quando necessário, envolver o conteúdo com `<i>` **dentro do `<p>`**, garantindo a semântica e mantendo a formatação consistente.
+
+---
+
+### **Estrutura geral do e-mail**
+
+#### 1. Cabeçalho (`<thead>`)
+
+```html
+<thead>
+  <tr bgcolor="#1C54A8">
+    <th align="left" style="padding: 24px 0 24px 40px;">
+      <p style="margin: 0; color: #fff; font-size: 20px; font-family: sans-serif;">
+        Recebemos o seu pedido
+      </p>
+    </th>
+    <th style="padding: 28px 0 24px;">
+      <img src="https://servidor-estaticos.vercel.app/EBAC_SHOES.png" alt="EBAC Shoes">
+    </th>
+  </tr>
+</thead>
+```
+
+* A primeira célula usa `align="left"` e `padding-left: 40px` para alinhar o texto ao início;
+* A segunda célula exibe o logo da EBAC Shoes.
+
+#### 2. Mensagem principal (`<tbody>`)
+
+```html
+<tr>
+  <td colspan="2" style="padding: 24px 40px 56px;">
+    <h2 style="font-size: 16px; font-family: sans-serif;">
+      <b><i>Olá, tudo bem ?</i></b>
+    </h2>
+    <p style="font-size: 14px; font-family: sans-serif;">
+      <i>Recebemos o seu pedido e agora estamos aguardando a confirmação do pagamento pela operadora.</i>
+    </p>
+    <p style="font-size: 14px; font-family: sans-serif; padding-bottom: 16px;">
+      <i>Você pode acompanhar os detalhes do pedido clicando no botão abaixo:</i>
+    </p>
+    <a href=""
+      style="text-decoration: none; background-color: #1C54A8; color: #fff; padding: 16px 8px; border-radius: 6px; font-family: sans-serif;">
+      <b><i>Acompanhar o pedido</i></b>
+    </a>
+  </td>
+</tr>
+```
+
+* Aqui temos o título da mensagem e o botão de ação com formatação apropriada.
+
+#### 3. Título da seção de detalhes
+
+```html
+<tr>
+  <td colspan="2" style="font-family: sans-serif; font-size: 16px; padding-left: 40px;">
+    <b><i>Detalhes do pedido</i></b>
+  </td>
+</tr>
+```
+
+* O título “Detalhes do pedido” é destacado com `<b><i>...</i></b>` e padding à esquerda.
+
+#### 4. Seção de produto com imagem e descrição
+
+```html
+<tr>
+  <td colspan="2" style="padding-left: 40px; padding-top: 16px; padding-bottom: 80px;">
+    <div style="display: inline-block;">
+      <img src="https://servidor-estaticos.vercel.app/produto.png" alt="">
+    </div>
+    <div style="display: inline-block; margin-left: 16px;">
+      <p style="font-size: 14px; font-family: sans-serif; margin: 0;">
+        <b>Tênis Nike</b><br>
+        <b>Tamanho:</b> 40<br>
+        <b>Cor:</b> Preta<br>
+        <b>Quantidade:</b> 1<br>
+        <b>Preço:</b> R$350,00 em 5x R$70,00<br>
+        <b>Frete:</b> grátis<br>
+        <b>Número do pedido:</b> 9876523453
+      </p>
+    </div>
+  </td>
+</tr>
+```
+
+* A imagem do produto fica ao lado da descrição;
+* Para alinhar corretamente, usamos `display: inline-block` nas duas `<div>`;
+* O espaçamento entre as divs é feito com `margin-left: 16px`.
+
+---
+
+### **Rodapé (`<tfoot>`)**
+
+```html
+<tfoot>
+  <tr>
+    <td align="center" colspan="2" bgcolor="#1C54A8" style="padding: 16px 8px;">
+      <a href="https://ebacshoes.com.br/">
+        <img src="https://servidor-estaticos.vercel.app/ebac_shoes_site.png" alt="EBAC Shoes">
+      </a>
+    </td>
+  </tr>
+</tfoot>
+```
+
+* Mantém o estilo do cabeçalho, com fundo azul e o logo da loja.
+
+---
+
+### **Resumo da Aula 4**
+
+* A estrutura de e-mails foi reutilizada e expandida com sucesso;
+* Incluímos uma seção de detalhes do pedido com imagem e dados em texto;
+* Identificamos e corrigimos problemas causados por alterações de tags como `<i>` no lugar de `<p>`;
+* Para alinhar imagem e descrição, usamos `display: inline-block`;
+* Usamos `colspan="2"` nas linhas principais para manter alinhamento com o cabeçalho;
+* Ajustamos `padding` e `margin` para evitar colagens ou desalinhamentos visuais;
+* Aprendemos que até mesmo o exemplo do professor apresentou desalinhamento leve, o que reforça a necessidade de sempre testar o layout em múltiplos clientes de e-mail.
